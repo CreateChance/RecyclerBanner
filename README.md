@@ -104,3 +104,16 @@ Only one java class, it is tiny and clean.
             footer.setText("第" + position + "张footer");
         }
     });
+# xml attribute
+    autoPlaying(boolean): set auto play.
+    playInterval(integer): auto play interval time.
+    indicatorSelected(color|reference): selected indicator source color or image.
+    indicatorUnselected(color|reference): unselected indicator source color or image.
+    showIndicator(boolean): whether show indicator of current position.
+    indicatorSize(dimension|reference): size of indicator view.
+    indicatorSpace(dimension|reference): space of indicator view.
+    indicatorMargin(dimension|reference): margin(left, top, right, bottom) of indicator view.
+    indicatorGravity(enum): gravity of indicator views in it's container.
+# java api
+    See comments of RecyclerBanner.java class, that is more clean than plain words.
+    
