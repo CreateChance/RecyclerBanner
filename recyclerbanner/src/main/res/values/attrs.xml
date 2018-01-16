@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RecyclerBanner">
+        <attr name="autoPlaying" format="boolean" />
+        <attr name="playInterval" format="integer" />
+        <attr name="indicatorSelectedSrc" format="color|reference" />
+        <attr name="indicatorUnselectedSrc" format="color|reference" />
+        <attr name="showIndicator" format="boolean" />
+        <attr name="indicatorSize" format="dimension|reference" />
+        <attr name="indicatorSpace" format="dimension|reference" />
+        <attr name="indicatorMargin" format="dimension|reference" />
+        <attr name="indicatorGravity" format="enum">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>
