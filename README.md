@@ -1,5 +1,6 @@
 # RecyclerBanner
 Auto play banner list view, implemented by recycler view.
+
 Only one java class, it is tiny and clean.
 
 # How to use
@@ -12,7 +13,7 @@ Only one java class, it is tiny and clean.
         app:autoPlaying="true"
         app:indicatorSelectedSrc="#00ff00"
         app:indicatorUnselectedSrc="@android:color/holo_green_light" />
-        
+
 ## 2. define banner view layout(sample):
 
 <?xml version="1.0" encoding="utf-8"?>
