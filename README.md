@@ -12,6 +12,7 @@ Only one java class, it is tiny and clean.
         app:indicatorSelectedSrc="#00ff00"
         app:indicatorUnselectedSrc="@android:color/holo_green_light" />
 ## 2. define banner view layout(sample):
+
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tool="http://schemas.android.com/tools"
@@ -46,6 +47,7 @@ Only one java class, it is tiny and clean.
         tool:text="@string/app_name" />
 
 </RelativeLayout>
+
 ## 3. use in activity
 recyclerBanner = findViewById(R.id.banner);
         initBannerList();
