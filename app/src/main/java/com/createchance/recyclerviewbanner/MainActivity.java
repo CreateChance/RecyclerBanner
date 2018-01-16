@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerBanner = findViewById(R.id.banner);
         initBannerList();
-        recyclerBanner.setBannerSize(bannerList.size());
+        recyclerBanner.setBannerCount(bannerList.size());
         recyclerBanner.setRecyclerBannerCallback(new RecyclerBanner.RecyclerBannerCallback() {
             @Override
             public View createBannerView(ViewGroup parent) {
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         bannerList.add(new Banner("https://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1516098471181%26di%3Db73c4da8c247d39544a2d6c0c92c1c8b%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fimg2.niutuku.com%252Fdesk%252F1208%252F2027%252Fntk-2027-16107.jpg&thumburl=https%3A%2F%2Fss1.bdstatic.com%2F70cFvXSh_Q1YnxGkpoWK1HF6hhy%2Fit%2Fu%3D1639473443%2C2804235162%26fm%3D27%26gp%3D0.jpg"));
         bannerList.add(new Banner("https://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1516098471180%26di%3Df80d983ecf94b1e175c7bbae0fde7e4f%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fimgsrc.baidu.com%252Fimgad%252Fpic%252Fitem%252Fb3b7d0a20cf431ada46c8e114036acaf2edd9858.jpg&thumburl=https%3A%2F%2Fss2.bdstatic.com%2F70cFvnSh_Q1YnxGkpoWK1HF6hhy%2Fit%2Fu%3D1470376000%2C2278695940%26fm%3D200%26gp%3D0.jpg"));
         bannerList.add(new Banner("https://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=https%3A%2F%2Ftimgsa.baidu.com%2Ftimg%3Fimage%26quality%3D80%26size%3Db9999_10000%26sec%3D1516098471178%26di%3D6a613d3370fac53c0df859badd090d07%26imgtype%3D0%26src%3Dhttp%253A%252F%252Fimg2.niutuku.com%252Fdesk%252F1208%252F1307%252Fntk-1307-6459.jpg&thumburl=https%3A%2F%2Fss0.bdstatic.com%2F70cFuHSh_Q1YnxGkpoWK1HF6hhy%2Fit%2Fu%3D2094003366%2C1604040358%26fm%3D27%26gp%3D0.jpg"));
-        recyclerBanner.setBannerSize(bannerList.size());
+        recyclerBanner.setBannerCount(bannerList.size());
         recyclerBanner.refresh();
     }
 

@@ -290,7 +290,9 @@ public class RecyclerBanner extends FrameLayout {
      */
     public void refresh() {
         mRecyclerViewAdapter.notifyDataSetChanged();
-        createIndicators();
+        if (mIsShowIndicator) {
+            createIndicators();
+        }
     }
 
     /**
@@ -307,9 +309,11 @@ public class RecyclerBanner extends FrameLayout {
      *
      * @param size banner列表的尺寸
      */
-    public void setBannerSize(int size) {
+    public void setBannerCount(int size) {
         this.mBannerSize = size;
-        createIndicators();
+        if (mIsShowIndicator) {
+            createIndicators();
+        }
     }
 
     /**

@@ -11,8 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:autoPlaying="true"
+        app:indicatorGravity="center"
+        app:indicatorMargin="20dp"
         app:indicatorSelected="#00ff00"
-        app:indicatorUnselected="#4c4c4c" />
+        app:indicatorSize="10dp"
+        app:indicatorSpace="20dp"
+        app:indicatorUnselected="#4c4c4c"
+        app:playInterval="3000"
+        app:showIndicator="true" />
 
     <Button
         android:id="@+id/refresh"
