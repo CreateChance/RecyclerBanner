@@ -4,6 +4,7 @@ Only one java class, it is tiny and clean.
 
 # How to use
 ## 1. define in xml layout:
+
 <com.createchance.recyclerbanner.RecyclerBanner
         android:id="@+id/banner"
         android:layout_width="match_parent"
@@ -11,6 +12,7 @@ Only one java class, it is tiny and clean.
         app:autoPlaying="true"
         app:indicatorSelectedSrc="#00ff00"
         app:indicatorUnselectedSrc="@android:color/holo_green_light" />
+        
 ## 2. define banner view layout(sample):
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -49,54 +51,55 @@ Only one java class, it is tiny and clean.
 </RelativeLayout>
 
 ## 3. use in activity
+
 recyclerBanner = findViewById(R.id.banner);
-        initBannerList();
-        recyclerBanner.setBannerSize(bannerList.size());
-        recyclerBanner.setRecyclerBannerCallback(new RecyclerBanner.RecyclerBannerCallback() {
+initBannerList();
+recyclerBanner.setBannerSize(bannerList.size());
+recyclerBanner.setRecyclerBannerCallback(new RecyclerBanner.RecyclerBannerCallback() {
+    @Override
+    public View createBannerView(ViewGroup parent) {
+        View bannerView = getLayoutInflater().inflate(R.layout.banner_item, parent, false);
+
+        bannerView.findViewById(R.id.banner_title).setOnClickListener(new View.OnClickListener() {
             @Override
-            public View createBannerView(ViewGroup parent) {
-                View bannerView = getLayoutInflater().inflate(R.layout.banner_item, parent, false);
-
-                bannerView.findViewById(R.id.banner_title).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        int pos = recyclerBanner.getCurrentPosition();
-                        Toast.makeText(MainActivity.this, "第" + pos + "个title被点击了", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                bannerView.findViewById(R.id.banner_img).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        int pos = recyclerBanner.getCurrentPosition();
-                        Toast.makeText(MainActivity.this, "第" + pos + "个image被点击了", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                bannerView.findViewById(R.id.banner_footer).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        int pos = recyclerBanner.getCurrentPosition();
-                        Toast.makeText(MainActivity.this, "第" + pos + "个footer被点击了", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                return bannerView;
-            }
-
-            @Override
-            public void switchBanner(int position, View bannerView) {
-                Banner banner = bannerList.get(position);
-
-                TextView title = bannerView.findViewById(R.id.banner_title);
-                title.setText("第" + position + "张title");
-
-                Glide.with(MainActivity.this)
-                        .load(banner.getUrl())
-                        .error(R.mipmap.ic_launcher)
-                        .into((ImageView) bannerView.findViewById(R.id.banner_img));
-
-                TextView footer = bannerView.findViewById(R.id.banner_footer);
-                footer.setText("第" + position + "张footer");
+            public void onClick(View view) {
+                int pos = recyclerBanner.getCurrentPosition();
+                Toast.makeText(MainActivity.this, "第" + pos + "个title被点击了", Toast.LENGTH_SHORT).show();
             }
         });
+
+        bannerView.findViewById(R.id.banner_img).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos = recyclerBanner.getCurrentPosition();
+                Toast.makeText(MainActivity.this, "第" + pos + "个image被点击了", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        bannerView.findViewById(R.id.banner_footer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos = recyclerBanner.getCurrentPosition();
+                Toast.makeText(MainActivity.this, "第" + pos + "个footer被点击了", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return bannerView;
+    }
+
+    @Override
+    public void switchBanner(int position, View bannerView) {
+        Banner banner = bannerList.get(position);
+
+        TextView title = bannerView.findViewById(R.id.banner_title);
+        title.setText("第" + position + "张title");
+
+        Glide.with(MainActivity.this)
+                .load(banner.getUrl())
+                .error(R.mipmap.ic_launcher)
+                .into((ImageView) bannerView.findViewById(R.id.banner_img));
+
+        TextView footer = bannerView.findViewById(R.id.banner_footer);
+        footer.setText("第" + position + "张footer");
+    }
+});
