@@ -3,8 +3,8 @@
     <declare-styleable name="RecyclerBanner">
         <attr name="autoPlaying" format="boolean" />
         <attr name="playInterval" format="integer" />
-        <attr name="indicatorSelectedSrc" format="color|reference" />
-        <attr name="indicatorUnselectedSrc" format="color|reference" />
+        <attr name="indicatorSelected" format="color|reference" />
+        <attr name="indicatorUnselected" format="color|reference" />
         <attr name="showIndicator" format="boolean" />
         <attr name="indicatorSize" format="dimension|reference" />
         <attr name="indicatorSpace" format="dimension|reference" />

@@ -174,8 +174,8 @@ public class RecyclerBanner extends FrameLayout {
         mInterval = a.getInt(R.styleable.RecyclerBanner_playInterval, 3000);
         mIsShowIndicator = a.getBoolean(R.styleable.RecyclerBanner_showIndicator, true);
         mIsAutoPlaying = a.getBoolean(R.styleable.RecyclerBanner_autoPlaying, true);
-        Drawable selectedDrawable = a.getDrawable(R.styleable.RecyclerBanner_indicatorSelectedSrc);
-        Drawable unselectedDrawable = a.getDrawable(R.styleable.RecyclerBanner_indicatorUnselectedSrc);
+        Drawable selectedDrawable = a.getDrawable(R.styleable.RecyclerBanner_indicatorSelected);
+        Drawable unselectedDrawable = a.getDrawable(R.styleable.RecyclerBanner_indicatorUnselected);
         if (selectedDrawable == null) {
             mSelectedDrawable = generateDefaultDrawable(DEFAULT_SELECTED_COLOR);
         } else {

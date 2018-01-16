@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:autoPlaying="true"
-        app:indicatorSelectedSrc="#00ff00"
-        app:indicatorUnselectedSrc="@android:color/holo_green_light" />
+        app:indicatorSelected="#00ff00"
+        app:indicatorUnselected="#4c4c4c" />
 
     <Button
         android:id="@+id/refresh"
