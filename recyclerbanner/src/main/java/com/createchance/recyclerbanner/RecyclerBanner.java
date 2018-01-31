@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 /**
@@ -223,9 +223,9 @@ public class RecyclerBanner extends FrameLayout {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     int first = ((LinearLayoutManager) recyclerView.getLayoutManager()).
-                            findFirstVisibleItemPosition();
+                            findFirstCompletelyVisibleItemPosition();
                     int last = ((LinearLayoutManager) recyclerView.getLayoutManager()).
-                            findLastVisibleItemPosition();
+                            findLastCompletelyVisibleItemPosition();
                     if (first == last && mCurrentIndex != last) {
                         mCurrentIndex = last;
                         if (mIsShowIndicator && mIsTouched) {
@@ -314,6 +314,8 @@ public class RecyclerBanner extends FrameLayout {
         if (mIsShowIndicator) {
             createIndicators();
         }
+        // try to playing banner.
+        setPlaying(true);
     }
 
     /**
@@ -453,7 +455,7 @@ public class RecyclerBanner extends FrameLayout {
     private void switchIndicator() {
         if (mIndicatorContainer != null && mIndicatorContainer.getChildCount() > 0) {
             for (int i = 0; i < mIndicatorContainer.getChildCount(); i++) {
-                ((AppCompatImageView) mIndicatorContainer.getChildAt(i)).setImageDrawable(
+                ((ImageView) mIndicatorContainer.getChildAt(i)).setImageDrawable(
                         i == mCurrentIndex % mBannerSize ? mSelectedDrawable : mUnselectedDrawable);
             }
         }
@@ -478,7 +480,7 @@ public class RecyclerBanner extends FrameLayout {
     private synchronized void setPlaying(boolean playing) {
         if (mIsAutoPlaying) {
             if (!mIsPlaying && playing && mRecyclerViewAdapter != null &&
-                    mRecyclerViewAdapter.getItemCount() > 2) {
+                    mRecyclerViewAdapter.getItemCount() >= 2) {
                 mMainHandler.postDelayed(mAutoPlayTask, mInterval);
                 mIsPlaying = true;
             } else if (mIsPlaying && !playing) {
@@ -506,7 +508,7 @@ public class RecyclerBanner extends FrameLayout {
     private void createIndicators() {
         mIndicatorContainer.removeAllViews();
         for (int i = 0; i < mBannerSize; i++) {
-            AppCompatImageView img = new AppCompatImageView(getContext());
+            ImageView img = new ImageView(getContext());
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
