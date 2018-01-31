@@ -55,7 +55,7 @@ Only one java class, it is tiny and clean.
 
     recyclerBanner = findViewById(R.id.banner);
     initBannerList();
-    recyclerBanner.setBannerSize(bannerList.size());
+    recyclerBanner.setBannerCount(bannerList.size());
     recyclerBanner.setRecyclerBannerCallback(new RecyclerBanner.RecyclerBannerCallback() {
         @Override
         public View createBannerView(ViewGroup parent) {
